@@ -2,24 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/ceptree.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>CEP Tree</title>
   </head>
   <body>
     <div id="app">
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-        <ul>
-      </nav>
-      <div id="some_text">
-        <p>
-          Hoje é dia de aprender <span class="highlight">Vite</span> com <span class="highlight">Vanilla</span>. 
-        </p>	
-      </div>
+      <header>
+        <h1 class="primary">CEP</h1>
+        <h1 class="secondary">TREE</h1>
+      </header>
+      <section id="dataset" class="hidden">
+        <div id="load">
+          <a id="search" href="#" class="cta">Carregar Dataset</a>
+          <div class="loader"></div>
+        </div>
+      </section>
+      <section id="search" >
+        <form id="formCEP">
+          <div id="input-data">
+            <label for="fcep">Informe seu CEP</label>
+            <input type="text" id="cep" name="fcep" />
+          </div>
+          <a id="add" class="cta">Buscar</a>
+          <div class="loader hidden" ></div>
+        </form>
+        
+      </section>
+      <section>
+        <p id="result">Encontrado em 5 seg.</p>
+        <div id="data">
+          <div id="cep">
+            <p class="data-label">Cep</p>
+            <p class="data-value">01.001-901</p>
+          </div>
+          <div id="bairro">
+            <p class="data-label">BaiRRO</p>
+            <p class="data-value">Sé</p>
+          </div>
+          <div id="cidade">
+            <p class="data-label">Cidade</p>
+            <p class="data-value">São Paulo/SP</p>
+          </div>
+          <div id="endereco">
+            <p class="data-label">Endereço</p>
+            <p class="data-value">Praça da Sé, 371</p>
+          </div>
+          <div id="complemento">
+            <p class="data-label">COMPLEMENTO</p>
+            <p class="data-value">Edifício Santa Lídia</p>
+          </div>
+        </div>
+      </section>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
