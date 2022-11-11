@@ -1,6 +1,6 @@
 import './style/style.css'
 import Logo from '/ceptree.svg'
-
+import { RedBlackTree } from './core/RedBlackTree';
 
 
 
@@ -55,3 +55,21 @@ import { getDataObject } from './component/readcep'
 
 const itens = await getDataObject(5)
 console.log(itens)
+
+const tree = new RedBlackTree();
+var node0 = tree.insert(1);
+var node1 = tree.insert(8);
+var node2 = tree.insert(6);
+var node3 = tree.insert(11);
+var node4 = tree.insert(13);
+var node5 = tree.insert(17);
+var node6 = tree.insert(15);
+var node7 = tree.insert(25);
+var node8 = tree.insert(22);
+var node9 = tree.insert(27);
+
+var func = function(x) {
+    console.log(x)
+}
+
+tree.inOrderTraverse(func)
