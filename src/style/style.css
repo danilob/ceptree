@@ -168,8 +168,8 @@ header {
 }
 
 .cta {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: 80%;
   padding: 1em;
   text-align: center;
   text-decoration: none;
@@ -251,7 +251,7 @@ label {
 input[type="text"],
 select,
 textarea {
-  width: 100%;
+  width: 90%;
   font-size: 1.25em;
   padding: 0.5em;
   border-radius: 0.2em;
@@ -265,7 +265,7 @@ textarea:focus {
 }
 
 #result{
-  display: inline-block
+  display: inline-block;
   color: var(--color-black);
   border-bottom: 2px solid var(--color-yellow);
   font-size: 0.75rem;
@@ -279,7 +279,9 @@ textarea:focus {
   text-transform: uppercase;
   border-radius: 7px;
   border: 3px solid var(--color-yellow);
-  color: var(--color-black)
+  color: var(--color-black);
+  display: flex;
+  flex-direction: column;
 }
 
 .data-item{
@@ -302,3 +304,77 @@ textarea:focus {
 .data-value{
   margin-left: 1em;
 }
+
+.data-item:nth-child(4) {
+  order: 0;
+}
+.data-item:nth-child(3){
+  order: 1;
+}
+.data-item:nth-child(2){
+  order: 2;
+}
+.data-item:nth-child(5){
+  order: 3;
+}
+.data-item:nth-child(1){
+  order: 4;
+}
+
+@media (min-width: 700px) {
+  #app{
+    max-width: 700px;
+    width: 60%;
+  }
+  #formCEP{
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-content: center;
+  }
+  #input-data{
+    width: 57%;
+  }
+  #btnSearch{
+    margin-left: 1em;
+    width: 32%;
+    margin: 0;
+  }
+
+  #formCEP .loader{
+    display:inline-block;
+    margin: 1em auto 1em;
+  }
+}
+@media (min-width: 1200px) {
+  
+  #data-result{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+  .data-item{
+    width: 47%;
+  }
+  
+}
+
+/* @media (min-width: 850px) {
+  .patient {
+    width: 23.1%;
+  }
+  #attendence {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #waiting,
+  #served,
+  #last-one {
+    margin-right: 1em;
+  }
+  #last-one {
+    width: 65%;
+  }
+} */
