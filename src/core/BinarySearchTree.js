@@ -58,9 +58,9 @@ export class BinarySearchTree {
         if (node == null) {
             return null;
         }
-        if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
+        if (this.compareFn(key, node.key.key) === Compare.LESS_THAN) {
             return this.searchNode(node.left, key);
-        } else if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
+        } else if (this.compareFn(key, node.key.key) === Compare.BIGGER_THAN) {
             return this.searchNode(node.right, key);
         }
         return node;

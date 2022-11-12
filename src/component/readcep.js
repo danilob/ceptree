@@ -1,4 +1,5 @@
 import fs from 'vite-plugin-fs/browser';
+import { Address } from '../core/Address';
 
 export async function getDataObject(size = -1, tree) {
     var csv = await fs.readFile('public/ceps.csv')
@@ -22,6 +23,14 @@ export async function getDataObject(size = -1, tree) {
             obj[headers[j]] = (str[item] !== undefined) ? str[item].trim() : ""
             item += 1
         }
+        var address_example = new Address({
+            city: obj["CIDADE"],
+            street: obj["ENDEREÇO"],
+            neighborhood: obj["BAIRRO"],
+            zipCode: obj["CEP"],
+            complement: obj["COMPLEMENT"]
+        })
+        tree.insert(address_example)
         result.push(obj)
     }
 
