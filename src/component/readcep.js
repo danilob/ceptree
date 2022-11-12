@@ -1,6 +1,6 @@
 import fs from 'vite-plugin-fs/browser';
 
-export async function getDataObject(size = -1) {
+export async function getDataObject(size = -1, tree) {
     var csv = await fs.readFile('public/ceps.csv')
     var array = csv.toString().split("\n");
     let result = [];

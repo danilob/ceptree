@@ -22,6 +22,7 @@ export class RedBlackTree extends BinarySearchTree {
     constructor(compareFn = defaultCompare) {
         super(compareFn)
         this.root = null;
+        this.count = 0;
     }
 
     rotationLL(node) {
@@ -66,15 +67,17 @@ export class RedBlackTree extends BinarySearchTree {
         if (this.root == null) {
             this.root = new RedBlackNode(key);
             this.root.color = Colors.BLACK;
+            this.count += 1;
             return this.root;
         } else {
             const newNode = this.insertNode(this.root, key);
             this.fixTreeProperties(newNode);
+            this.count += 1;
             return newNode;
         }
     }
     insertNode(node, key) {
-        if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
+        if (this.compareFn(key.key, node.key.key) === Compare.LESS_THAN) {
             if (node.left == null) {
                 node.left = new RedBlackNode(key);
                 node.left.parent = node;
