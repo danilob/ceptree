@@ -18,11 +18,11 @@ headerElement.append(logoElement)
 
 const tree = new RedBlackTree();
 
-const itens = getDataObject(5, tree)
+const itens = getDataObject(tree)
 
 console.log(itens)
 
-const keyToSearch = "01001010"
+const keyToSearch = "64211045"
 
 const find = tree.search(Number(keyToSearch))
 
