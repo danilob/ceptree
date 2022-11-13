@@ -18,7 +18,7 @@ headerElement.append(logoElement)
 
 const tree = new RedBlackTree();
 
-const itens = await getDataObject(5, tree)
+const itens = getDataObject(5, tree)
 
 console.log(itens)
 

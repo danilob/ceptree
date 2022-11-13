@@ -1,7 +1,7 @@
 import { Address } from '../core/Address';
 import Dataset from '../dataset/ceps.csv'
 
-export async function getDataObject(size = -1, tree) {
+export function getDataObject(size = -1, tree) {
     let result = [];
     let maxItens = (size < 0) ? Dataset.length - 1 : Math.min(size + 1, Dataset.length - 1)
     for (let i = 1; i < maxItens; i++) {
