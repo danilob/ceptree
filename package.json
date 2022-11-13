@@ -11,8 +11,5 @@
   "devDependencies": {
     "@rollup/plugin-dsv": "^3.0.1",
     "vite": "^3.2.3"
-  },
-  "dependencies": {
-    "vite-plugin-fs": "^1.0.0-beta.4"
   }
 }

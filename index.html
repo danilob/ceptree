@@ -4,10 +4,15 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/ceptree.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style/loading.css">
     <title>CEP Tree</title>
   </head>
   <body>
-    <div id="app">
+    <div id="prepared" class="hidden">
+      <div class="loader"></div>
+      <h4>Preparando aplicação...</h4>
+    </div>
+    <div id="app" class="hidden">
       <header>
         <h1 class="primary">CEP</h1>
         <h1 class="secondary">TREE</h1>

@@ -8,6 +8,9 @@ import { getDataObject } from './component/readcep'
 const get = e => document.querySelector(e); //obtém um elemento
 const gets = e => document.querySelectorAll(e); //obtém uma lista de elementos
 
+get("#prepared").remove()
+get("#app").classList.remove("hidden")
+
 const headerElement = get('header h1:nth-child(2)')
 var logoElement = document.createElement('img')
 logoElement.src = Logo
