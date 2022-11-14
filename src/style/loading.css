@@ -22,8 +22,8 @@
 html, body{
 	margin:0;
 	padding: 0;
-	background-color: #FCFDF2;
-	height: 100vh;
+	/* background-color: #FCFDF2; */
+	/* height: 100vh; */
 }
 body{
 	background-color: #FCFDF2;

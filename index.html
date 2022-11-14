@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/ceptree.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/style/loading.css">
+    <link rel="stylesheet" href="./src/style/loading.css" />
     <title>CEP Tree</title>
   </head>
   <body>
@@ -23,42 +23,43 @@
           <div class="loader"></div>
         </div>
       </section>
-      <section id="search" >
-        <form id="formCEP">
-          <div id="input-data">
-            <label for="fcep">Informe seu CEP</label>
-            <input type="text" id="cep" name="fcep" />
+      <div id="main-app">
+        <section id="search">
+          <form id="formCEP">
+            <div id="input-data">
+              <label for="fcep">Informe seu CEP</label>
+              <input type="text" id="cep" name="fcep" />
+            </div>
+            <a id="btnSearch" class="cta deactivate">Buscar</a>
+            <div class="loader"></div>
+          </form>
+        </section>
+        <p id="result">Encontrado em 5 seg.</p>
+        <section>
+          <div id="data-result">
+            <div id="cep" class="data-item">
+              <p class="data-label">Cep</p>
+              <p class="data-value">01.001-901</p>
+            </div>
+            <div id="bairro" class="data-item">
+              <p class="data-label">BaiRRO</p>
+              <p class="data-value">Sé</p>
+            </div>
+            <div id="cidade" class="data-item">
+              <p class="data-label">Cidade</p>
+              <p class="data-value">São Paulo/SP</p>
+            </div>
+            <div id="endereco" class="data-item">
+              <p class="data-label">Endereço</p>
+              <p class="data-value">Praça da Sé, 371</p>
+            </div>
+            <div id="complemento" class="data-item">
+              <p class="data-label">COMPLEMENTO</p>
+              <p class="data-value">Edifício Santa Lídia</p>
+            </div>
           </div>
-          <a id="btnSearch" class="cta deactivate">Buscar</a>
-          <div class="loader" ></div>
-        </form>
-        
-      </section>
-      <p id="result">Encontrado em 5 seg.</p>
-      <section>
-        <div id="data-result">
-          <div id="cep" class="data-item">
-            <p class="data-label">Cep</p>
-            <p class="data-value">01.001-901</p>
-          </div>
-          <div id="bairro" class="data-item">
-            <p class="data-label">BaiRRO</p>
-            <p class="data-value">Sé</p>
-          </div>
-          <div id="cidade" class="data-item">
-            <p class="data-label">Cidade</p>
-            <p class="data-value">São Paulo/SP</p>
-          </div>
-          <div id="endereco" class="data-item">
-            <p class="data-label">Endereço</p>
-            <p class="data-value">Praça da Sé, 371</p>
-          </div>
-          <div id="complemento" class="data-item">
-            <p class="data-label">COMPLEMENTO</p>
-            <p class="data-value">Edifício Santa Lídia</p>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>

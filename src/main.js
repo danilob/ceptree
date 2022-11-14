@@ -18,22 +18,21 @@ headerElement.append(logoElement)
 
 const tree = new RedBlackTree();
 
-const itens = getDataObject(tree)
 
-console.log(itens)
 
-const keyToSearch = "64211045"
 
-const find = tree.search(Number(keyToSearch))
+// const keyToSearch = "64211045"
 
-if (find) {
-    var node = tree.getNode(Number(keyToSearch))
-    node.key.print()
-} else {
-    console.log("Não encontrado!")
-}
+// const find = tree.search(Number(keyToSearch))
 
-console.log(tree.count)
+// if (find) {
+//     var node = tree.getNode(Number(keyToSearch))
+//     node.key.print()
+// } else {
+//     console.log("Não encontrado!")
+// }
+
+// console.log(tree.count)
 
 // const homeElement = get('ul li:nth-child(1)')
 // homeElement.classList.add('selected')
@@ -88,4 +87,70 @@ const btnSearch = get("#btnSearch")
 
 btnSearch.addEventListener('click', () => {
     console.log(cepInputMasked.unmaskedValue)
+    dataResultDiv.style.display = "none"
+    resultP.style.display = "none"
+
+    if (cepInputMasked.unmaskedValue.length !== 8) {
+        alert("Insira um CEP válido.")
+    } else {
+        loaderInsideForm.style.display = "block";
+        btnSearch.classList.add("deactivate")
+        setTimeout(() => {
+            const keyToSearch = cepInputMasked.unmaskedValue
+
+            const find = tree.search(Number(keyToSearch))
+
+            resultP.style.display = "block"
+
+            if (find) {
+                var node = tree.getNode(Number(keyToSearch))
+                node.key.print()
+                resultP.innerText = `CEP ${cepInputMasked.value} encontrado.`
+                dataResultDiv.style.display = "block"
+                const cepValue = get("#cep .data-value")
+                cepValue.innerText = (node.key.zipCode.length == 0) ? "não informado" : node.key.zipCode;
+            } else {
+                resultP.innerText = `CEP ${cepInputMasked.value} não encontrado.`
+            }
+            loaderInsideForm.style.display = "none";
+            btnSearch.classList.remove("deactivate")
+        }, 2000)
+
+    }
+})
+
+
+const mainAppSection = get("#main-app")
+
+mainAppSection.style.display = "none";
+
+const loaderInsideLoadDiv = get("#load .loader")
+
+loaderInsideLoadDiv.style.display = "none";
+
+const datasetButton = get("#search")
+
+const loaderInsideForm = get("#formCEP .loader")
+
+loaderInsideForm.style.display = "none";
+
+const resultP = get("#result")
+
+resultP.style.display = "none"
+
+const dataResultDiv = get("#data-result")
+
+dataResultDiv.style.display = "none"
+
+datasetButton.addEventListener("click", (event) => {
+    loaderInsideLoadDiv.style.display = "block";
+    datasetButton.classList.add("deactivate")
+    getDataObject(tree)
+    setTimeout(() => {
+        alert(`Foram adicionados ${tree.count} CEPs referentes ao PI, MA e CE.`)
+        const datasetSection = get("#dataset")
+        datasetSection.style.display = "none"
+        mainAppSection.style.display = "block";
+    }, 500)
+
 })

@@ -185,24 +185,24 @@ header {
   color: var(--black-color);
 }
 
-.cta:hover,a:hover{
+/* .cta:hover,a:hover{
   color: var(--color-red);
   background-color: var(--color-yellow); 
-}
+} */
 
 a:visited,.cta:visited,a:link{
   color: var(--color-red);
   
 }
 
-a:active,
+/* a:active,
 .cta:active,
 a:focus,
 .cta:focus, a:focus-visible, .cta:focus-visible {
   color: white;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
   background-color: var(--color-red);
-}
+} */
 
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
