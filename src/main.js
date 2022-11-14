@@ -73,3 +73,19 @@ console.log(tree.count)
 //         e.classList.remove('hover')
 //     })
 // })
+import IMask from 'imask';
+
+const cepInput = get("#cep")
+
+const cepInputPattern = {
+    mask: "00000-000",
+    lazy: true
+}
+const cepInputMasked = IMask(cepInput, cepInputPattern)
+
+
+const btnSearch = get("#btnSearch")
+
+btnSearch.addEventListener('click', () => {
+    console.log(cepInputMasked.unmaskedValue)
+})
