@@ -84,18 +84,17 @@ const cepInputMasked = IMask(cepInput, cepInputPattern)
 
 
 const btnSearch = get("#btnSearch")
+btnSearch.classList.remove("deactivate")
 
 btnSearch.addEventListener('click', () => {
-    console.log(cepInputMasked.unmaskedValue)
     dataResultDiv.style.display = "none"
     resultP.style.display = "none"
-
-    if (cepInputMasked.unmaskedValue.length !== 8) {
-        alert("Insira um CEP válido.")
-    } else {
-        loaderInsideForm.style.display = "block";
-        btnSearch.classList.add("deactivate")
-        setTimeout(() => {
+    loaderInsideForm.style.display = "block";
+    btnSearch.classList.add("deactivate")
+    setTimeout(() => {
+        if (cepInputMasked.unmaskedValue.length !== 8) {
+            alert("Insira um CEP válido.")
+        } else {
             const keyToSearch = cepInputMasked.unmaskedValue
 
             const find = tree.search(Number(keyToSearch))
@@ -108,15 +107,28 @@ btnSearch.addEventListener('click', () => {
                 resultP.innerText = `CEP ${cepInputMasked.value} encontrado.`
                 dataResultDiv.style.display = "block"
                 const cepValue = get("#cep .data-value")
-                cepValue.innerText = (node.key.zipCode.length == 0) ? "não informado" : node.key.zipCode;
+                cepValue.innerText = cepInputMasked.value;
+
+                const streetValue = get("#endereco .data-value")
+                streetValue.innerText = (node.key.street.length == 0) ? "não informado" : node.key.street;
+
+                const neighborValue = get("#bairro .data-value")
+                neighborValue.innerText = (node.key.neighborhood.length == 0) ? "não informado" : node.key.neighborhood;
+
+                const cityValue = get("#cidade .data-value")
+                cityValue.innerText = (node.key.city.length == 0) ? "não informado" : node.key.city;
+
+                const complementValue = get("#complemento .data-value")
+                complementValue.innerText = (node.key.complement.length == 0) ? "não informado" : node.key.complement;
             } else {
                 resultP.innerText = `CEP ${cepInputMasked.value} não encontrado.`
             }
-            loaderInsideForm.style.display = "none";
-            btnSearch.classList.remove("deactivate")
-        }, 2000)
-
-    }
+            cepInput.value = ""
+            cepInputMasked.masked.reset()
+        }
+        loaderInsideForm.style.display = "none";
+        btnSearch.classList.remove("deactivate")
+    }, 500)
 })
 
 
